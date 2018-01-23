@@ -1,0 +1,31 @@
+.cs-content {
+    margin-top: 25px;
+}
+
+.cs-section-header {
+    height: 50px;
+    padding: 5px;
+    margin-bottom: 15px;
+    /* background-color: bisque; */
+}
+
+.cs-btn-add {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
+
+.cs-btn-add:hover {
+    background-color: black;
+    color: white;
+}
+
+.cs-form-add {
+    padding: 25px;
+    background-color: aquamarine;
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 0;
+}

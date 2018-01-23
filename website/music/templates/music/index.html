@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Music App</title>
+    <link rel="stylesheet" href="{% static 'music/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'music/app.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Music App</a>
+    </nav>
+
+    <div class="container cs-content">
+    
+    <div class="row cs-section-header">
+        <div class="col-lg-11"><h2>Song List</h2></div>
+        <div class="col-lg-1"><button type="button" class="btn cs-btn-add" id="add-btn">+</button></div>
+    </div>
+
+    {% include 'music/add.html' %}
+
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Singer</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Comment</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    </div>
+
+
+    <script src="{% static 'music/jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'music/popper.min.js' %}"></script>
+    <script src="{% static 'music/bootstrap.min.js' %}"></script>
+    <script src="{% static 'music/app.js' %}"></script>
+  </body>
+</html>
