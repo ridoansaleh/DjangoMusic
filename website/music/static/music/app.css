@@ -22,10 +22,17 @@
 
 .cs-form-add {
     padding: 25px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     margin-bottom: 15px;
+    background-image: url('./picture/guitar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.form-control {
-    border-radius: 0;
+.cs-label-field {
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 25px;
 }

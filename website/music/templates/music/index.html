@@ -16,12 +16,12 @@
     <div class="container cs-content">
     
     <div class="row cs-section-header">
-        <div class="col-lg-11"><h2>Song List</h2></div>
-        <div class="col-lg-1"><button type="button" class="btn cs-btn-add" id="add-btn">+</button></div>
+        <div class="col-lg-12"><h2>Song List</h2></div>
     </div>
 
     {% include 'music/add.html' %}
 
+    {% if songs %}
     <div class="row">
         <table class="table">
             <thead>
@@ -31,27 +31,68 @@
                 <th scope="col">Genre</th>
                 <th scope="col">Singer</th>
                 <th scope="col">Rating</th>
-                <th scope="col">Comment</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
+            {% for song in songs %}
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+                <td>{{ song.id }}</td>
+                <td>{{ song.title }}</td>
+                <td>{{ song.genre }}</td>
+                <td>{{ song.singer }}</td>
+                <td>{{ song.rating }}</td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit</button>
                     <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
                 </td>
             </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
+    {% endif %}
 
+    </div>
+
+    {% load widget_tweaks %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Edit Song</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                        <div class="form-group row">
+                            <label for="{{ field.id_for_label }}" class="col-lg-3 col-form-label">{{ field.label }}</label>
+                            <div class="col-lg-9">
+                                {{ field|add_class:'form-control' }}
+                            </div>
+                            <!-- error message displayed -->
+                            {% for error in field.errors %}
+                                <span class="help-block">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <div class="row justify-content-end">
+                            <div class="col-lg-3">
+                                <input type="submit" class="btn btn-warning btn-block" value="Save" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
     </div>
 
 
