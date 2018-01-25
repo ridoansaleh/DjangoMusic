@@ -28,28 +28,28 @@
                 <div class="form-group row">
                     <label for="id_title" class="col-lg-3 col-form-label cs-label-field">Title</label>
                     <div class="col-lg-9">
-                        <input class="form-control cs-form-control" id="id_title" maxlength="50" name="title" type="text" value="{{ song.title }}" />
+                        <input class="form-control cs-form-control" id="id_title" maxlength="50" name="title" type="text" value="{{ song.title }}" required />
                     </div>
                 </div>
             
                 <div class="form-group row">
                     <label for="id_genre" class="col-lg-3 col-form-label cs-label-field">Genre</label>
                     <div class="col-lg-9">
-                        <input class="form-control cs-form-control" id="id_genre" maxlength="25" name="genre" type="text" value="{{ song.genre }}"/>
+                        <input class="form-control cs-form-control" id="id_genre" maxlength="25" name="genre" type="text" value="{{ song.genre }}" required />
                     </div>
                 </div>
             
                 <div class="form-group row">
                     <label for="id_singer" class="col-lg-3 col-form-label cs-label-field">Singer</label>
                     <div class="col-lg-9">
-                        <input class="form-control cs-form-control" id="id_singer" maxlength="50" name="singer" type="text" value="{{ song.singer }}" />
+                        <input class="form-control cs-form-control" id="id_singer" maxlength="50" name="singer" type="text" value="{{ song.singer }}" required />
                     </div>
                 </div>
             
                 <div class="form-group row">
                     <label for="id_rating" class="col-lg-3 col-form-label cs-label-field">Rating</label>
                     <div class="col-lg-9">
-                        <input class="form-control cs-form-control" id="id_rating" min="0" name="rating" type="number" value="{{ song.rating }}"/>
+                        <input class="form-control cs-form-control" id="id_rating" min="0" name="rating" type="number" value="{{ song.rating }}" required/>
                     </div>
                 </div>
                 
@@ -64,6 +64,24 @@
         </div>   
     </div>
 
+    <input type="hidden" id="status" value="{{ status }}">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Successfully edited the data</p>
+            </div>
+          </div>
+        </div>
+    </div>
 
     </div>
 

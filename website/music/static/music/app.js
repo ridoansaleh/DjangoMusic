@@ -1,17 +1,11 @@
+$(window).on('load',function(){
+    var s = $("#status").val();
+    if (s=='success'){
+        $('#myModal').modal('show');
+    }
+});
 
-
-function editSong(id){
-    var x = '-';
-    $.ajax({
-        url: '/edit/'+id,
-        method: 'GET',
-        dataType: 'json',
-        success: function(data){
-            x = data;
-            console.log(data);
-
-            $("#box").val(data);
-        }
-    });
-    console.log("x : ",x);
+function sendData(id){
+    console.log(id);
+    $("#btn-delete").attr("href", "delete/"+id);
 }
