@@ -1,17 +1,17 @@
 
 
 function editSong(id){
+    var x = '-';
     $.ajax({
-        url: 'edit/song/'+id,
-        type: 'GET',
+        url: '/edit/'+id,
+        method: 'GET',
         dataType: 'json',
         success: function(data){
-            console.log("data : ",data);
-        },
-        error: function(xhr, errMsg, err){
-            console.log("xhr : ",xhr);
-            console.log("errMsg : ",errMsg);
-            console.log("err : ",err);
+            x = data;
+            console.log(data);
+
+            $("#box").val(data);
         }
     });
+    console.log("x : ",x);
 }

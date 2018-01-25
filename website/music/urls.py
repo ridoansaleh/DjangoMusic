@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index), 
-    url(r'^edit/song/?P<pk>\d+', views.editSong),
+    url(r'^edit/(?P<pk>\d+)$', views.edit, name='edit_song'),
+    url(r'^delete/(?P<pk>\d+)$', views.delete), 
 ]

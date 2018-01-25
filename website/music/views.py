@@ -14,7 +14,19 @@ def index(request):
         form = SongForm()
     return render(request, 'music/index.html', {'form': form, 'songs': Song.objects.all() })
 
-def editSong(request, pk):
-    theSong = Song.objects.get(pk=pk)
-    print(theSong)
-    return render(request, 'music/index.html', {'song': theSong })
+def edit(request, pk):
+    _song = Song.objects.get(pk=pk)
+    if request.method == 'POST':
+        _song.title = request.POST['title']
+        _song.genre = request.POST['genre']
+        _song.singer = request.POST['singer']
+        _song.rating = request.POST['rating']
+        _song.save()
+        return HttpResponseRedirect('/')
+
+    return render(request, 'music/edit.html', {'song': _song })
+
+def delete(request, pk):
+    _song = Song.objects.get(pk=pk)
+    _song.delete()
+    return HttpResponseRedirect('/')

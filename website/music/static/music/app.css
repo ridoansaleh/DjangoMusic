@@ -1,3 +1,7 @@
+.navbar {
+    background: rgba(76, 175, 80, 0.1);
+}
+
 .cs-content {
     margin-top: 25px;
 }
@@ -9,24 +13,19 @@
     /* background-color: bisque; */
 }
 
-.cs-btn-add {
-    background-color: white;
-    border: 2px solid black;
-    color: black;
-}
-
-.cs-btn-add:hover {
-    background-color: black;
-    color: white;
+.cs-form-add, .cs-form-edit  {
+    padding: 25px;
+    margin-bottom: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .cs-form-add {
-    padding: 25px;
-    /* background-color: aquamarine; */
-    margin-bottom: 15px;
-    background-image: url('./picture/guitar.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('./picture/microphone.jpeg');
+}
+
+.cs-form-edit {
+    background-image: url('./picture/person_radio.jpg');
 }
 
 .cs-label-field {

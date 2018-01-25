@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{% static 'music/app.css' %}">
   </head>
   <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Music App</a>
+        <a class="navbar-brand" href="/">Music App</a>
     </nav>
 
     <div class="container cs-content">
@@ -43,8 +44,8 @@
                 <td>{{ song.singer }}</td>
                 <td>{{ song.rating }}</td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="editSong({{ song.id }})" data-toggle="modal" data-target="#exampleModalCenter">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                    <a class="btn btn-sm btn-outline-primary" href="edit/{{ song.id }}">Edit</a>
+                    <a class="btn btn-sm btn-outline-danger" href="delete/{{ song.id }}">Delete</a>
                 </td>
             </tr>
             {% endfor %}
@@ -53,44 +54,6 @@
     </div>
     {% endif %}
 
-    </div>
-
-    {% load widget_tweaks %}
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Edit Song</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <form method="post">
-                    {% csrf_token %}
-                    {% for field in form.visible_fields %}
-                        <div class="form-group">
-                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                            {{ field|add_class:'form-control' }}
-                            <!-- error message displayed -->
-                            {% for error in field.errors %}
-                                <span class="help-block">{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% endfor %}
-                    <div class="form-group">
-                        <div class="row justify-content-end">
-                            <div class="col-lg-3">
-                                <input type="submit" class="btn btn-warning btn-block" value="Save" />
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-          </div>
-        </div>
     </div>
 
 
