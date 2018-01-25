@@ -35,3 +35,18 @@
 .form-group {
     margin-bottom: 25px;
 }
+
+.form-control {
+    background-color: transparent;
+    color: white;
+}
+
+.cs-form-control {
+    border: 1px solid gray;
+}
+
+.cs-text-center {
+    text-align: center;
+    font-style: italic;
+    color: white;
+}

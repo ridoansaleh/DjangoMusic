@@ -2,29 +2,28 @@
 
 <div class="row cs-form-add">
     <div class="col-lg-6">
-
         <form method="post">
             {% csrf_token %}
-
             {% for field in form.visible_fields %}
                 <div class="form-group row">
                     <label for="{{ field.id_for_label }}" class="col-lg-3 col-form-label cs-label-field">{{ field.label }}</label>
                     <div class="col-lg-9">
                         {{ field|add_class:'form-control' }}
                     </div>
-                    {% for error in field.errors %}
-                        <span class="help-block">{{ error }}</span>
-                    {% endfor %}
+                    <div class="col-lg-10 cs-text-center">
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
                 </div>
             {% endfor %}
             <div class="form-group">
                 <div class="row justify-content-end">
                     <div class="col-lg-3">
-                        <input type="submit" class="btn btn-block" value="Save" />
+                        <input type="submit" class="btn btn-outline-dark btn-block" value="Save" />
                     </div>
                 </div>
             </div>
         </form>
-
     </div>
 </div>
