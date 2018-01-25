@@ -13,3 +13,8 @@ def index(request):
     else:
         form = SongForm()
     return render(request, 'music/index.html', {'form': form, 'songs': Song.objects.all() })
+
+def editSong(request, pk):
+    theSong = Song.objects.get(pk=pk)
+    print(theSong)
+    return render(request, 'music/index.html', {'song': theSong })

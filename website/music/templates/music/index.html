@@ -43,7 +43,7 @@
                 <td>{{ song.singer }}</td>
                 <td>{{ song.rating }}</td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="editSong({{ song.id }})" data-toggle="modal" data-target="#exampleModalCenter">Edit</button>
                     <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
                 </td>
             </tr>
@@ -94,7 +94,7 @@
     </div>
 
 
-    <script src="{% static 'music/jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'music/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'music/popper.min.js' %}"></script>
     <script src="{% static 'music/bootstrap.min.js' %}"></script>
     <script src="{% static 'music/app.js' %}"></script>
