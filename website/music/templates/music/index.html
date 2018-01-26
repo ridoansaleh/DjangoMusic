@@ -22,7 +22,6 @@
 
     {% include 'music/add.html' %}
 
-    {% if songs %}
     <div class="row">
         <table class="table">
             <thead>
@@ -45,15 +44,18 @@
                 <td>{{ song.rating }}</td>
                 <td>
                     <a class="btn btn-sm btn-outline-warning" href="edit/{{ song.id }}">Edit</a>
-                    <!-- <a class="btn btn-sm btn-outline-danger" href="delete/{{ song.id }}">Delete</a> -->
                     <a class="btn btn-sm btn-outline-danger" onclick="sendData({{ song.id }})" data-toggle="modal" data-target="#exampleModalCenter">Delete</a>
                 </td>
             </tr>
             {% endfor %}
+            {% if not songs %}
+              <tr>
+                <td colspan="6" class="cs-text-center cs-empty-table"> There is no song yet. Please add a song ! </td>
+              </tr>
+            {% endif %}
             </tbody>
         </table>
     </div>
-    {% endif %}
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -69,8 +71,8 @@
               <p>Are you sure want to Delete this song ?</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <a type="button" class="btn btn-danger" id="btn-delete" href="">Delete</a>
+              <a class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+              <a class="btn btn-danger" id="btn-delete" href="">Delete</a>
             </div>
           </div>
         </div>

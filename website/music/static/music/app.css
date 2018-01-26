@@ -2,6 +2,15 @@
     background: rgba(76, 175, 80, 0.1);
 }
 
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-control {
+    background-color: transparent;
+    color: white;
+}
+
 .cs-content {
     margin-top: 25px;
 }
@@ -10,7 +19,6 @@
     height: 50px;
     padding: 5px;
     margin-bottom: 15px;
-    /* background-color: bisque; */
 }
 
 .cs-form-add, .cs-form-edit  {
@@ -32,21 +40,20 @@
     color: white;
 }
 
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-control {
-    background-color: transparent;
-    color: white;
-}
-
 .cs-form-control {
     border: 1px solid gray;
 }
 
-.cs-text-center {
+.cs-text-center, .cs-text-error {
     text-align: center;
+}
+
+.cs-text-error {
     font-style: italic;
     color: white;
+}
+
+.cs-empty-table {
+    background-color: azure;
+    color: grey;
 }

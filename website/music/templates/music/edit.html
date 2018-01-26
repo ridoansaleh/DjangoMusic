@@ -23,40 +23,35 @@
     <div class="row cs-form-edit">
         <div class="col-lg-6">       
             <form method="post">
-                {% csrf_token %}
-            
+                {% csrf_token %}            
                 <div class="form-group row">
                     <label for="id_title" class="col-lg-3 col-form-label cs-label-field">Title</label>
                     <div class="col-lg-9">
                         <input class="form-control cs-form-control" id="id_title" maxlength="50" name="title" type="text" value="{{ song.title }}" required />
                     </div>
-                </div>
-            
+                </div>            
                 <div class="form-group row">
                     <label for="id_genre" class="col-lg-3 col-form-label cs-label-field">Genre</label>
                     <div class="col-lg-9">
                         <input class="form-control cs-form-control" id="id_genre" maxlength="25" name="genre" type="text" value="{{ song.genre }}" required />
                     </div>
-                </div>
-            
+                </div>            
                 <div class="form-group row">
                     <label for="id_singer" class="col-lg-3 col-form-label cs-label-field">Singer</label>
                     <div class="col-lg-9">
                         <input class="form-control cs-form-control" id="id_singer" maxlength="50" name="singer" type="text" value="{{ song.singer }}" required />
                     </div>
-                </div>
-            
+                </div>            
                 <div class="form-group row">
                     <label for="id_rating" class="col-lg-3 col-form-label cs-label-field">Rating</label>
                     <div class="col-lg-9">
                         <input class="form-control cs-form-control" id="id_rating" min="0" name="rating" type="number" value="{{ song.rating }}" required/>
                     </div>
-                </div>
-                
+                </div>                
                 <div class="form-group">
                     <div class="row justify-content-end">
                         <div class="col-lg-3">
-                            <input type="submit" class="btn btn-outline-warning btn-block" value="Save" />
+                            <input type="submit" class="btn btn-outline-info btn-block" value="Save" />
                         </div>
                     </div>
                 </div>
@@ -84,7 +79,6 @@
     </div>
 
     </div>
-
 
     <script src="{% static 'music/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'music/popper.min.js' %}"></script>
