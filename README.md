@@ -2,9 +2,10 @@
 
 ### How to install this app ?
 
-1. clone the app `git clone <repository-url>`
+1. Clone the app `git clone <repository-url>`
 
-2. create an virtual environment
+2. Create an virtual environment. 
+   Change the current directory to the project and `virtualenv env`
 
 3. install all the dependencies
 
