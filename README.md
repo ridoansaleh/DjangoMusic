@@ -4,7 +4,7 @@
 
 1. Clone the app `$ git clone <repository-url>`
 
-2. Create an virtual environment. Change the current directory to the project folder and type `$ virtualenv env`.
+2. Create a virtual environment. Change the current directory to the project folder and type `$ virtualenv env`.
 
 3. Activate the virtual environment you've just created `$ source env\bin\activate`.
 
