@@ -8,7 +8,7 @@
 
 3. Activate the virtual environment you've just created `$ source env\bin\activate`.
 
-4. Install all the dependencies `$ pip install -r requirements`.
+4. Install all the dependencies `$ pip install -r requirements.txt`.
 
 5. Migrate the music app. Change the current directory to project folder (that included apps) and type `$ cd website && python manage.py migrate`.
 
