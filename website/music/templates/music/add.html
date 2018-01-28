@@ -1,29 +1,27 @@
 {% load widget_tweaks %}
 
-<div class="row cs-form-add">
-    <div class="col-lg-6">
-        <form method="post">
-            {% csrf_token %}
-            {% for field in form.visible_fields %}
-                <div class="form-group row">
-                    <label for="{{ field.id_for_label }}" class="col-lg-3 col-form-label cs-label-field">{{ field.label }}</label>
-                    <div class="col-lg-9">
-                        {{ field|add_class:'form-control' }}
-                    </div>
-                    <div class="col-lg-10 cs-text-error">
-                        {% for error in field.errors %}
-                            {{ error }}
-                        {% endfor %}
-                    </div>
+<div class="col-lg-6">
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            <div class="form-group row">
+                <label for="{{ field.id_for_label }}" class="col-lg-3 col-form-label cs-label-field">{{ field.label }}</label>
+                <div class="col-lg-9">
+                    {% render_field field class='form-control' %}
                 </div>
-            {% endfor %}
-            <div class="form-group">
-                <div class="row justify-content-end">
-                    <div class="col-lg-3">
-                        <input type="submit" class="btn btn-outline-dark btn-block" value="Save" />
-                    </div>
+                <div class="col-lg-10 cs-text-error">
+                    {% for error in field.errors %}
+                        {{ error }}
+                    {% endfor %}
                 </div>
             </div>
-        </form>
-    </div>
+        {% endfor %}
+        <div class="form-group">
+            <div class="row justify-content-end">
+                <div class="col-lg-3">
+                    <input type="submit" class="btn btn-outline-info btn-block" value="Save" />
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
