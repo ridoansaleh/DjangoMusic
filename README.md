@@ -6,7 +6,7 @@
 
 2. Buatlah sebuah virtual environment pada root directory `$ virtualenv env`.
 
-3. Aktifkan virtual environment `$ source env\bin\activate` (Linux dan OSX) atau `C:\Documents\DjangoMusic>env\Scripts\activate` (Windows)
+3. Aktifkan virtual environment `$ source env/bin/activate` (Linux dan OSX) atau `C:\Documents\DjangoMusic>env\Scripts\activate` (Windows)
 
 4. Install seluruh dependency  `pip install -r requirements.txt`
 
