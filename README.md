@@ -1,15 +1,15 @@
 # Django Music
 
-### How to install this app ?
+### Cara menginstall Aplikasi Music ?
 
-1. Clone the app `$ git clone <repository-url>`
+1. Klon aplikasi `$ git clone <repository-url>` atau download
 
-2. Create a virtual environment. Change the current directory to the project folder and type `$ virtualenv env`.
+2. Buatlah sebuah virtual environment pada root directory `$ virtualenv env`.
 
-3. Activate the virtual environment you've just created `$ source env\bin\activate`.
+3. Aktifkan virtual environment `$ source env\bin\activate` (Linux dan OSX) atau `C:\Documents\DjangoMusic>env\Scripts\activate` (Windows)
 
-4. Install all the dependencies `$ pip install -r requirements.txt`.
+4. Install seluruh dependency  `pip install -r requirements.txt`
 
-5. Migrate the music app. Change the current directory to project folder (that included apps) and type `$ cd website && python manage.py migrate`.
+5. Migrasikan aplikasi `(env) $ DjangoMusic python website/manage.py migrate` (Linux dan OSX) atau `(env) C:\Documents\DjangoMusic>python website\manage.py migrate` (Windows)
 
-6. Run the django's server `$ python manage.py runserver`. 
+6. Jalankan aplikasi `(env) $ DjangoMusic python website/manage.py runserver` (Linux dan OSX) atau `(env) C:\Documents\DjangoMusic>python website\manage.py runserver` (Windows)
