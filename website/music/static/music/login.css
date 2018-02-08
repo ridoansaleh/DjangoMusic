@@ -1,0 +1,56 @@
+body {
+    background-image: url('../../static/music/picture/headset.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+label {
+    color: white;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* custom css - new class name */
+
+.cs-login-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2b3137;
+    opacity: 0.8;
+}
+
+.cs-login-container {
+    margin-top: 20vh;
+    z-index: 100px;
+}
+
+.cs-login-btn {
+    border: 0.1px solid white;
+    background-color: #2b3137;
+    border-radius: 0;
+    color: white;
+}
+
+form > a.cs-cancel-btn {
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 0;
+    color: white;
+}
+
+p.cs-footer-text {
+    position: relative;
+    top: 10px;
+    font-size: 12px;
+}

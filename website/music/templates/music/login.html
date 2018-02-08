@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Music App - Login</title>
+    <link rel="stylesheet" href="{% static 'music/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'music/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'music/login.css' %}">
+  </head>
+  <body>
+
+    <div class="cs-login-screen">
+        <div class="container">
+            <div class="row justify-content-lg-center cs-login-container">
+                <div class="col-lg-4">
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-default cs-login-btn">Sign in</button>
+                        <a href="/" class="btn btn-default cs-cancel-btn">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <p class="cs-footer-text">Created by @RidoNst</p>
+    </nav>
+
+    <script src="{% static 'music/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'music/popper.min.js' %}"></script>
+    <script src="{% static 'music/bootstrap.min.js' %}"></script>
+    <script src="{% static 'music/app.js' %}"></script>
+  </body>
+</html>

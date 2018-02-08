@@ -11,6 +11,8 @@
     color: white;
 }
 
+/* custom css - new class name */
+
 .cs-content {
     margin-top: 25px;
 }
@@ -56,4 +58,22 @@
 .cs-empty-table {
     background-color: azure;
     color: grey;
+}
+
+.cs-right-menu {
+    position: absolute;
+    right: 10vw;
+}
+
+.cs-login-btn, .cs-login-btn:hover {
+    border: 0.1px solid white;
+    border-radius: 0;
+    color: white;
+    background-color: #343a40;
+}
+
+.cs-register-btn, .cs-register-btn:hover {
+    color: white;
+    border: 0.1px solid white;
+    border-radius: 0;
 }
