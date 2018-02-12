@@ -34,6 +34,10 @@ input:focus {
     z-index: 100px;
 }
 
+.cs-group-login-btn {
+    margin-top: 25px;
+}
+
 .cs-login-btn {
     border: 0.1px solid white;
     background-color: #2b3137;
@@ -41,7 +45,7 @@ input:focus {
     color: white;
 }
 
-form > a.cs-cancel-btn {
+a.cs-cancel-btn {
     border-width: 0.1px;
     border-style: solid;
     border-color: white;
@@ -52,5 +56,16 @@ form > a.cs-cancel-btn {
 p.cs-footer-text {
     position: relative;
     top: 10px;
+    font-size: 12px;
+}
+
+.cs-login-line {
+    margin-top: 30px;
+    background-color: #E9ECF0;
+}
+
+.cs-signup-text {
+    text-align: right;
+    color: #E9ECF0;
     font-size: 12px;
 }

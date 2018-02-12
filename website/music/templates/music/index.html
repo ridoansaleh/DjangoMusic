@@ -4,93 +4,97 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Music App</title>
+    {% block title %} <title>Music App | Home</title> {% endblock %}
     <link rel="stylesheet" href="{% static 'music/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'music/font-awesome/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'music/app.css' %}">
+    {% block style %} <link rel="stylesheet" href="{% static 'music/app.css' %}"> {% endblock %}
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">Music App</a>
-      <div class="cs-right-menu">
-        <a href="login" class="btn btn-default cs-login-btn">Sign in</a>
-        <a href="#" class="btn btn-default cs-register-btn"><i class="fa fa-user-plus"></i></a>
-      </div>
-    </nav>
+    {% block navbar %}
+      <!-- start: navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Music App</a>
+        <div class="cs-right-menu">
+          <a href="login" class="btn btn-default cs-login-btn">Sign in</a>
+          <a href="#" class="btn btn-default cs-register-btn"><i class="fa fa-user-plus"></i></a>
+        </div>
+      </nav>
+      <!-- end: navbar -->
+    {% endblock %}
 
     <div class="container cs-content">
     
     {% block content  %}
-
-    <div class="row cs-section-header">
-        <div class="col-lg-12"><h2>Song List</h2></div>
-    </div>
-
-    <div class="row cs-form-add">
-      {% include 'music/song_form.html' %}
-    </div>
-
-    <div class="row">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Genre</th>
-                <th scope="col">Singer</th>
-                <th scope="col">Rating</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for song in songs %}
-            <tr>
-                <td>{{ song.id }}</td>
-                <td>{{ song.title }}</td>
-                <td>{{ song.genre }}</td>
-                <td>{{ song.singer }}</td>
-                <td>{{ song.rating }}</td>
-                <td>
-                    <a class="btn btn-sm btn-outline-primary" href="edit/{{ song.id }}">
-                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
-                    </a>
-                    <a class="btn btn-sm btn-outline-danger" onclick="sendData({{ song.id }})" data-toggle="modal" data-target="#exampleModalCenter">
-                      <i class="fa fa-trash" aria-hidden="true"></i> Delete
-                    </a>
-                </td>
-            </tr>
-            {% endfor %}
-            {% if not songs %}
+      <div class="row cs-section-header">
+          <div class="col-lg-12"><h2>Song List</h2></div>
+      </div>
+      <!-- start: form - add song  -->
+      <div class="row cs-form-add">
+        {% include 'music/song_form.html' %}
+      </div>
+      <!-- end: form - add song  -->
+      <!-- start: table - song  -->
+      <div class="row">
+          <table class="table">
+              <thead>
               <tr>
-                <td colspan="6" class="cs-text-center cs-empty-table"> There is no song yet. Please add a song ! </td>
+                  <th scope="col">#</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Genre</th>
+                  <th scope="col">Singer</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col"></th>
               </tr>
-            {% endif %}
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Are you sure want to Delete this song ?</p>
-            </div>
-            <div class="modal-footer">
-              <a class="btn btn-primary" data-dismiss="modal">Cancel</a>
-              <a class="btn btn-danger" id="btn-delete" href="">Delete</a>
+              </thead>
+              <tbody>
+              {% for song in songs %}
+              <tr>
+                  <td>{{ song.id }}</td>
+                  <td>{{ song.title }}</td>
+                  <td>{{ song.genre }}</td>
+                  <td>{{ song.singer }}</td>
+                  <td>{{ song.rating }}</td>
+                  <td>
+                      <a class="btn btn-sm btn-outline-primary" href="edit/{{ song.id }}">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      </a>
+                      <a class="btn btn-sm btn-outline-danger" onclick="sendData({{ song.id }})" data-toggle="modal" data-target="#exampleModalCenter">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </a>
+                  </td>
+              </tr>
+              {% endfor %}
+              {% if not songs %}
+                <tr>
+                  <td colspan="6" class="cs-text-center cs-empty-table"> There is no song yet. Please add a song ! </td>
+                </tr>
+              {% endif %}
+              </tbody>
+          </table>
+      </div>
+      <!-- end: table - song  -->
+      <!-- start: modal - delete confirmation  -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Are you sure want to Delete this song ?</p>
+              </div>
+              <div class="modal-footer">
+                <a class="btn btn-primary" data-dismiss="modal">Cancel</a>
+                <a class="btn btn-danger" id="btn-delete" href="">Delete</a>
+              </div>
             </div>
           </div>
-        </div>
-    </div>
-
+      </div>
+      <!-- end: modal - delete confirmation  -->
     {% endblock  %} 
 
     </div>
@@ -98,6 +102,6 @@
     <script src="{% static 'music/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'music/popper.min.js' %}"></script>
     <script src="{% static 'music/bootstrap.min.js' %}"></script>
-    <script src="{% static 'music/app.js' %}"></script>
+    {% block script %} <script src="{% static 'music/app.js' %}"></script> {% endblock  %}
   </body>
 </html>

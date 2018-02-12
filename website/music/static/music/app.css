@@ -6,9 +6,8 @@
     margin-bottom: 25px;
 }
 
-.form-control {
-    background-color: transparent;
-    color: white;
+.form-control, select.form-control {
+    border-radius: 0px;
 }
 
 /* custom css - new class name */
