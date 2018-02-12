@@ -1,0 +1,23 @@
+.container {
+    margin-top: 25px;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+form label {
+    color: white;
+}
+
+.cs-signup-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 800px;
+    background-color: #2b3137;
+    opacity: 0.8;
+}
+

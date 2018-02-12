@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import SongForm
+from .forms import SongForm, SignUpForm
 from .models import Song
 from django.views.generic.base import TemplateView
 
@@ -37,6 +37,13 @@ def delete(request, pk):
 
 def login(request):
     return render(request, 'music/login.html', {})
+
+def signup(request):
+    return render(request, 'music/signup.html', { 'form': SignUpForm() })
+
+
+
+
 
 """
  Class-Based View 

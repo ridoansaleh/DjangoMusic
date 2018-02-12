@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^edit/(?P<pk>\d+)$', views.edit, name='edit'),
     url(r'^delete/(?P<pk>\d+)$', views.delete, name='delete'), 
     url(r'^login$', views.login, name='login'),
+    url(r'^signup$', views.signup, name='signup'),
 ]
