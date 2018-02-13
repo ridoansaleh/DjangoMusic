@@ -22,7 +22,7 @@
                         <div class="form-group row">
                             <label for="{{ field.id_for_label }}" class="col-lg-4 col-form-label cs-label-field">{{ field.label }}</label>
                             <div class="col-lg-8">
-                                {% render_field field class='form-control' %}
+                                {% render_field field class='form-control form-control-sm' %}
                             </div>
                             <div class="col-lg-10 cs-text-error">
                                 {% for error in field.errors %}
@@ -33,11 +33,9 @@
                     {% endfor %}
                     <div class="form-group">
                         <div class="row justify-content-end">
-                            <div class="col-lg-2">
-                                <input type="submit" class="btn btn-outline-info btn-block" value="Sign Up" />
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="submit" class="btn btn-outline-warning btn-block" value="Cancel" />
+                            <div class="col-lg-3">
+                                <input type="submit" class="btn btn-sm btn-default cs-signup-btn" value="Sign Up" />                           
+                                <a href="login" class="btn btn-sm btn-default cs-cancel-btn">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -46,5 +44,8 @@
         </div>
     </div>
 </div>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+    <p class="cs-footer-text">Created by @RidoNst</p>
+</nav>
 
 {% endblock %}

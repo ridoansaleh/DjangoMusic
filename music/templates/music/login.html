@@ -8,25 +8,33 @@
 
 {% block navbar %} {% endblock %}
 
+{% load widget_tweaks %}
+
 {% block content  %}
     <div class="cs-login-screen">
         <div class="container">
             <div class="row justify-content-lg-center cs-login-container">
                 <div class="col-lg-4">
-                    <form>
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter username">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Password</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Password">
-                        </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for field in form.visible_fields %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {% render_field field class='form-control' %}
+                                <div class="cs-text-error">
+                                    {% for error in field.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
                         <div class="cs-group-login-btn">
                             <button type="submit" class="btn btn-default cs-login-btn">Sign in</button>
                             <a href="/" class="btn btn-default cs-cancel-btn">Cancel</a>
                         </div>
                     </form>
+
                     <hr class="cs-login-line"/>
                     <p class="cs-signup-text">
                         Don't have an account ? Sign up <a href="signup">here</a>

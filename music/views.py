@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth import login, authenticate
 from django.http import HttpResponseRedirect
 from .forms import SongForm, SignUpForm
 from .models import Song
-from django.views.generic.base import TemplateView
 
 def index(request):
     status = ''
@@ -35,32 +35,27 @@ def delete(request, pk):
     song.delete()
     return HttpResponseRedirect('/')
 
-def login(request):
-    return render(request, 'music/login.html', {})
-
 def signup(request):
-    return render(request, 'music/signup.html', { 'form': SignUpForm() })
-
-
-
-
-
-"""
- Class-Based View 
-"""
-
-class HomeView(TemplateView):
-    template_name = 'music/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(HomeView, self).get_context_data(**kwargs)
-        context['form'] = SongForm
-        context['songs'] = Song.objects.all()
-        context['status'] = ''
-        return context
-
-    def post(self, request, *args, **kwargs):
-        form = SongForm(request.POST)
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
+            user = form.save()
+            user.refresh_from_db()
+            user.profile.birth_date = form.cleaned_data.get('birth_date')
+            user.profile.gender = form.cleaned_data.get('gender')
+            user.profile.address = form.cleaned_data.get('address')
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_password)
+            login(request, user)
+            return render(request, 'music/login.html', { })
+    else:
+        form = SignUpForm()
+    return render(request, 'music/signup.html', { 'form': form })
+
+# def login(request):
+#     return render(request, 'music/login.html', {})
+
+
+
+

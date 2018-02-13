@@ -14,10 +14,10 @@ class SignUpForm(UserCreationForm):
         ('Male', 'Male'),
         ('Female', 'Female'),
     )
-    birth_date = forms.DateField(label='Birth Date')
+    birth_date = forms.DateField()
     gender = forms.ChoiceField(widget=forms.Select, choices=gender_choices)
     address = forms.CharField(max_length=50, widget=forms.Textarea)
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'birth_date', 'gender', 'address', 'email', 'username', 'password1', 'password2' ]
+        fields = ['first_name', 'last_name', 'birth_date', 'gender', 'address', 'email', 'username', 'password1', 'password2']
