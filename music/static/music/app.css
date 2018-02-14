@@ -10,6 +10,25 @@
     border-radius: 0px;
 }
 
+.dropdown-menu {
+    margin-top: 1rem;
+    border-radius: 0;
+    min-width: 100%;
+}
+
+.nav-link, .nav-link:hover {
+    display: inline;
+    color: white;
+}
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+i.fa-user {
+    margin-left: 0.5em;
+}
+
 /* custom css - new class name */
 
 .cs-content {
@@ -61,18 +80,11 @@
 
 .cs-right-menu {
     position: absolute;
-    right: 10vw;
+    right: 7vw;
 }
 
-.cs-login-btn, .cs-login-btn:hover {
-    border: 0.1px solid white;
-    border-radius: 0;
-    color: white;
-    background-color: #343a40;
-}
-
-.cs-register-btn, .cs-register-btn:hover {
-    color: white;
-    border: 0.1px solid white;
-    border-radius: 0;
+.cs-user-photo {
+    height: 20px;
+    width: 20px;
+    background-color: white;
 }

@@ -28,7 +28,7 @@ class Profile(models.Model):
         ('Female', 'Female'),
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    birth_date = models.DateField()
+    birthdate = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=gender_choices, default='Male')
     address = models.TextField()
 
@@ -40,3 +40,7 @@ def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
+
+# DateField must be set to NULL 
+# reason : https://stackoverflow.com/questions/48297071/sqlite-not-null-constraint-failed

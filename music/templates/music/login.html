@@ -15,7 +15,6 @@
         <div class="container">
             <div class="row justify-content-lg-center cs-login-container">
                 <div class="col-lg-4">
-
                     <form method="post">
                         {% csrf_token %}
                         {% for field in form.visible_fields %}
@@ -34,7 +33,6 @@
                             <a href="/" class="btn btn-default cs-cancel-btn">Cancel</a>
                         </div>
                     </form>
-
                     <hr class="cs-login-line"/>
                     <p class="cs-signup-text">
                         Don't have an account ? Sign up <a href="signup">here</a>

@@ -4,6 +4,5 @@ if (s=='success'){
 }
 
 function sendData(id){
-    console.log(id);
     $("#btn-delete").attr("href", "delete/"+id);
 }

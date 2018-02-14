@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from .forms import SongForm, SignUpForm
 from .models import Song
 
-def index(request):
+def home(request):
     status = ''
     if request.method == 'POST':
         form = SongForm(request.POST)
@@ -41,7 +41,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()
-            user.profile.birth_date = form.cleaned_data.get('birth_date')
+            user.profile.birthdate = form.cleaned_data.get('birthdate')
             user.profile.gender = form.cleaned_data.get('gender')
             user.profile.address = form.cleaned_data.get('address')
             user.save()
@@ -51,10 +51,7 @@ def signup(request):
             return render(request, 'music/login.html', { })
     else:
         form = SignUpForm()
-    return render(request, 'music/signup.html', { 'form': form })
-
-# def login(request):
-#     return render(request, 'music/login.html', {})
+        return render(request, 'music/signup.html', { 'form': form })
 
 
 
