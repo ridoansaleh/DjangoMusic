@@ -8,6 +8,10 @@ label {
     color: white;
 }
 
+.form-group {
+    margin-bottom: 0.75rem;
+}
+
 .form-control {
     border-radius: 0;
 }
@@ -31,7 +35,7 @@ input:focus {
 
 .cs-login-container {
     margin-top: 20vh;
-    z-index: 100px;
+    z-index: 100;
 }
 
 .cs-group-login-btn {
@@ -67,5 +71,11 @@ p.cs-footer-text {
 .cs-signup-text {
     text-align: right;
     color: #E9ECF0;
+    font-size: 12px;
+}
+
+.cs-text-error {
+    margin-top: 0.2rem;
+    color: white;
     font-size: 12px;
 }

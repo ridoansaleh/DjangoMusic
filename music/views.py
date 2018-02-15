@@ -10,7 +10,7 @@ def home(request):
         form = SongForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('home')
     else:
         form = SongForm()
     # put render outside 'else' block, so user can see the error messages
@@ -34,7 +34,7 @@ def edit(request, pk):
 def delete(request, pk):
     song = Song.objects.get(pk=pk)
     song.delete()
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('home')
 
 def signup(request):
     if request.method == 'POST':
