@@ -14,8 +14,8 @@
 
 <div class="cs-signup-screen">
     <div class="container">
-        <div class="row justify-content-lg-center">
-            <div class="col-lg-7">
+        <div class="row justify-content-lg-end">
+            <div class="col-lg-7 cs-signup-box">
                 <form method="post">
                     {% csrf_token %}
                     {% for field in form.visible_fields %}
@@ -24,7 +24,8 @@
                             <div class="col-lg-8">
                                 {% render_field field class='form-control form-control-sm' %}
                             </div>
-                            <div class="col-lg-10 cs-text-error">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8 cs-text-error">
                                 {% for error in field.errors %}
                                     {{ error }}
                                 {% endfor %}
@@ -44,8 +45,5 @@
         </div>
     </div>
 </div>
-<nav class="navbar fixed-bottom navbar-light bg-light">
-    <p class="cs-footer-text">Created by @RidoNst</p>
-</nav>
 
 {% endblock %}

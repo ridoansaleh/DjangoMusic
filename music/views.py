@@ -13,7 +13,8 @@ def home(request):
             return HttpResponseRedirect('/')
     else:
         form = SongForm()
-        return render(request, 'music/index.html', {'form': form, 'songs': Song.objects.all(), 'status': status })
+    # put render outside 'else' block, so user can see the error messages
+    return render(request, 'music/index.html', {'form': form, 'songs': Song.objects.all(), 'status': status })
 
 def edit(request, pk):
     song = get_object_or_404(Song, pk=pk)
@@ -28,7 +29,7 @@ def edit(request, pk):
             return render(request, 'music/edit.html', {'form': post_form, 'status': status, 'song_title': song_title })
     else:
         form = SongForm(instance=song)
-        return render(request, 'music/edit.html', {'form': form, 'song_title': song_title })
+    return render(request, 'music/edit.html', {'form': form, 'song_title': song_title })
 
 def delete(request, pk):
     song = Song.objects.get(pk=pk)
@@ -51,7 +52,7 @@ def signup(request):
             return render(request, 'music/login.html', { })
     else:
         form = SignUpForm()
-        return render(request, 'music/signup.html', { 'form': form })
+    return render(request, 'music/signup.html', { 'form': form })
 
 
 

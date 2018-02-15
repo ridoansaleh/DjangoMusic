@@ -10,10 +10,15 @@ class SongForm(ModelForm):
         fields = ['title', 'genre', 'singer', 'rating']
 
 class SignUpForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        self.fields['email'].required = True
+
     gender_choices = (
         ('Male', 'Male'),
         ('Female', 'Female'),
     )
+    
     birthdate = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'})) 
     gender = forms.ChoiceField(widget=forms.Select, choices=gender_choices)
     address = forms.CharField(max_length=50, widget=forms.Textarea)
